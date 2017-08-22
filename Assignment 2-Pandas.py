@@ -14,8 +14,8 @@ names_ids = df.index.str.split('\s\(') # split the index by '('
 
 df.index = names_ids.str[0] # the [0] element is the country name (new index) 
 df['ID'] = names_ids.str[1].str[:3] # the [1] element is the abbreviation or ID (take first 3 characters from that)
-df = df.drop('Totals') #column 'Totals' is dropped off the dataset not deleted though
-df['Country']=df.index
-df=df.set_index('Country') #here 'Country' is made as the index column
+df = df.drop('Totals') #column 'Totals' is dropped off the dataset, but not deleted though
+df['Country']=df.index #a copy of 'Country' column is set as index. So there will be two columns of similar contents: one under column name 'Country' and another as index column. we will get Key Error when trying to set 'Country' column as the index, without assigning the values of 'Country' column to the index as done in this step
+df=df.set_index('Country') #here 'Country' column is made as the index column
 df=df.reset_index() #by resetting index, column 'Country' is made as the first column starting at 0th position 
 df.head(5) #the first 5 records are displayed
