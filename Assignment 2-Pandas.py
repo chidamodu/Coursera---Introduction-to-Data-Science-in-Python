@@ -8,7 +8,7 @@ for col in df.columns: #looping through columns to replace column names
     if col[:2]=='03':#checking if first two characters are equal to '01'. If yes then go to next step
         df.rename(columns={col:'Bronze'+col[4:]}, inplace=True) #similar procedure as explained above
     if col[:1]=='№':#similar procedure as explained above but only one character is verified equal or not to a specified value
-        df.rename(columns={col:'#'+col[1:]}, inplace=True) #only the first character is replaced with # and the remaining characters are added to the new, chnaged, character
+        df.rename(columns={col:'#'+col[1:]}, inplace=True) #only the first character is replaced with '#' and the remaining characters are added to the new, chnaged, character
 
 names_ids = df.index.str.split('\s\(') # split the index by '('
 
